@@ -1,0 +1,66 @@
+﻿@model Storepos.Entitites.Barang
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Barang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDBarang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDBarang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nama_Barang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nama_Barang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kode_Barang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kode_Barang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah_Stok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah_Stok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Harga_Satuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Harga_Satuan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tanggal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tanggal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IDBarang }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

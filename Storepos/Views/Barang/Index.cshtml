@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Storepos.Entitites.Barang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDBarang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nama_Barang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kode_Barang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jumlah_Stok)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Harga_Satuan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tanggal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDBarang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nama_Barang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kode_Barang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jumlah_Stok)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Harga_Satuan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tanggal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.IDBarang}) |
+            @Html.ActionLink("Details", "Details", new {  id=item.IDBarang  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.IDBarang })
+        </td>
+    </tr>
+}
+
+</table>
