@@ -272,6 +272,7 @@
     <Content Include="Admin_LTE\dist\img\credit\visa.png" />
     <Content Include="Admin_LTE\dist\img\default-150x150.png" />
     <Content Include="Admin_LTE\dist\img\icons.png" />
+    <Content Include="Admin_LTE\dist\img\Logo Ekasa.png" />
     <Content Include="Admin_LTE\dist\img\LogoEkasa-removebg-preview.png" />
     <Content Include="Admin_LTE\dist\img\photo1.png" />
     <Content Include="Admin_LTE\dist\img\photo2.png" />
