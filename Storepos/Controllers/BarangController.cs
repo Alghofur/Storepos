@@ -108,5 +108,11 @@ namespace Storepos.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult GeneratePDF()
+        {
+
+            return new Rotativa.ActionAsPdf("Index");
+        }
     }
 }
