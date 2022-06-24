@@ -12,14 +12,13 @@ namespace Storepos.Entitites
     using System;
     using System.Collections.Generic;
     
-    public partial class TB_Laporan
+    public partial class Laporann
     {
-        public int LaporanID { get; set; }
-        public string Waktu { get; set; }
+        public int IDBarang { get; set; }
+        public Nullable<System.DateTime> Waktu { get; set; }
         public string Kode_Barang { get; set; }
         public string Nama_Barang { get; set; }
-        public string Jumlah { get; set; }
-        public string Pendapatan { get; set; }
-        public string IDBarang { get; set; }
+        public Nullable<int> jumlah { get; set; }
+        public Nullable<int> Pendapatan { get; set; }
     }
 }
