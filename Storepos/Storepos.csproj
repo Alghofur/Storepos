@@ -2710,6 +2710,7 @@
     <Content Include="Views\Barang\Edit.cshtml" />
     <Content Include="Views\Barang\Details.cshtml" />
     <Content Include="Views\Barang\Delete.cshtml" />
+    <Content Include="Views\Barang\GeneratePDF.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -111,7 +111,6 @@ namespace Storepos.Controllers
 
         public ActionResult GeneratePDF()
         {
-
             return new Rotativa.ActionAsPdf("Index");
         }
     }
