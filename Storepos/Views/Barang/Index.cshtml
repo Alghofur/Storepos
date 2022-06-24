@@ -1,17 +1,42 @@
 ﻿@model IEnumerable<Storepos.Entitites.Barang>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "STOK BARANG";
     //Layout = "~/Views/Shared/Point_of_sale.cshtml";
 }
 
-<h2>Index</h2>
+<style>
+    .navbar{
+        background-color: #300243;
+    }
+    h2{
+        color: whitesmoke;
+        text-align: center;
+    }       
+    p{
+        border: none;
+        width: 100px;        
+        text-align: center;
+    }
+    p :hover{
+        color: #300243;
+        text-decoration: none;
+        font-size: 130%;
+        transition: .5s;
+    }
+</style>
 
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <h2>STOK BARANG EKASA MART</h2>
+</div>
+<br/>
+<br />
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<br/>
 <table class="table">
-    <tr>
+    <tr style="background: #f5e0fe">
         <th>
             @Html.DisplayNameFor(model => model.IDBarang)
         </th>
