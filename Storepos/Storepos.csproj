@@ -175,6 +175,7 @@
     <Compile Include="Controllers\BarangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PengaturanController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Entitites\AspNetRoles.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -2716,6 +2717,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Pengaturan\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
