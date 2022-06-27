@@ -70,11 +70,11 @@
           <Key>
             <PropertyRef Name="IDBarang" />
           </Key>
-          <Property Name="IDBarang" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IDBarang" Type="int" Nullable="false" />
           <Property Name="Nama_Barang" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Kode_Barang" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Jumlah_Stok" Type="int" />
-          <Property Name="Harga_Satuan" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Harga_Satuan" Type="varchar" MaxLength="300" />
           <Property Name="Tanggal" Type="date" />
         </EntityType>
         <EntityType Name="Laporann">
@@ -87,6 +87,7 @@
           <Property Name="Nama_Barang" Type="varchar" MaxLength="250" />
           <Property Name="jumlah" Type="int" />
           <Property Name="Pendapatan" Type="int" />
+          <Property Name="idLaporan" Type="int" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -233,17 +234,6 @@
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
-        <EntityType Name="Barang">
-          <Key>
-            <PropertyRef Name="IDBarang" />
-          </Key>
-          <Property Name="IDBarang" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nama_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Kode_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Jumlah_Stok" Type="Int32" />
-          <Property Name="Harga_Satuan" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Tanggal" Type="DateTime" Precision="0" />
-        </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -282,7 +272,6 @@
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
-          <EntitySet Name="Barang" EntityType="Self.Barang" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -296,6 +285,7 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <EntitySet Name="Laporann" EntityType="posModel.Laporann" />
+          <EntitySet Name="Barang" EntityType="posModel.Barang" />
         </EntityContainer>
         <EntityType Name="Laporann">
           <Key>
@@ -307,6 +297,18 @@
           <Property Name="Nama_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="jumlah" Type="Int32" />
           <Property Name="Pendapatan" Type="Int32" />
+          <Property Name="idLaporan" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Barang">
+          <Key>
+            <PropertyRef Name="IDBarang" />
+          </Key>
+          <Property Name="IDBarang" Type="Int32" Nullable="false" />
+          <Property Name="Nama_Barang" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Kode_Barang" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Jumlah_Stok" Type="Int32" />
+          <Property Name="Harga_Satuan" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Tanggal" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -369,18 +371,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Barang">
-            <EntityTypeMapping TypeName="posModel.Barang">
-              <MappingFragment StoreEntitySet="Barang">
-                <ScalarProperty Name="IDBarang" ColumnName="IDBarang" />
-                <ScalarProperty Name="Nama_Barang" ColumnName="Nama_Barang" />
-                <ScalarProperty Name="Kode_Barang" ColumnName="Kode_Barang" />
-                <ScalarProperty Name="Jumlah_Stok" ColumnName="Jumlah_Stok" />
-                <ScalarProperty Name="Harga_Satuan" ColumnName="Harga_Satuan" />
-                <ScalarProperty Name="Tanggal" ColumnName="Tanggal" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="posModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
@@ -392,11 +382,24 @@
           <EntitySetMapping Name="Laporann">
             <EntityTypeMapping TypeName="posModel.Laporann">
               <MappingFragment StoreEntitySet="Laporann">
+                <ScalarProperty Name="idLaporan" ColumnName="idLaporan" />
                 <ScalarProperty Name="Pendapatan" ColumnName="Pendapatan" />
                 <ScalarProperty Name="jumlah" ColumnName="jumlah" />
                 <ScalarProperty Name="Nama_Barang" ColumnName="Nama_Barang" />
                 <ScalarProperty Name="Kode_Barang" ColumnName="Kode_Barang" />
                 <ScalarProperty Name="Waktu" ColumnName="Waktu" />
+                <ScalarProperty Name="IDBarang" ColumnName="IDBarang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Barang">
+            <EntityTypeMapping TypeName="posModel.Barang">
+              <MappingFragment StoreEntitySet="Barang">
+                <ScalarProperty Name="Tanggal" ColumnName="Tanggal" />
+                <ScalarProperty Name="Harga_Satuan" ColumnName="Harga_Satuan" />
+                <ScalarProperty Name="Jumlah_Stok" ColumnName="Jumlah_Stok" />
+                <ScalarProperty Name="Kode_Barang" ColumnName="Kode_Barang" />
+                <ScalarProperty Name="Nama_Barang" ColumnName="Nama_Barang" />
                 <ScalarProperty Name="IDBarang" ColumnName="IDBarang" />
               </MappingFragment>
             </EntityTypeMapping>

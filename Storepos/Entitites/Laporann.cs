@@ -20,5 +20,6 @@ namespace Storepos.Entitites
         public string Nama_Barang { get; set; }
         public Nullable<int> jumlah { get; set; }
         public Nullable<int> Pendapatan { get; set; }
+        public Nullable<int> idLaporan { get; set; }
     }
 }

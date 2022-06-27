@@ -14,7 +14,7 @@ namespace Storepos.Entitites
     
     public partial class Barang
     {
-        public string IDBarang { get; set; }
+        public int IDBarang { get; set; }
         public string Nama_Barang { get; set; }
         public string Kode_Barang { get; set; }
         public Nullable<int> Jumlah_Stok { get; set; }

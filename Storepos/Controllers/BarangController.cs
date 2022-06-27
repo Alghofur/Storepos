@@ -43,7 +43,7 @@ namespace Storepos.Controllers
 
         [HttpGet]
         [ActionName("Edit")]
-        public ActionResult Edit_Get(string idbarang)
+        public ActionResult Edit_Get(int idbarang)
         {
             var barangmodel = new Barang();
             TryUpdateModel(barangmodel);
@@ -56,7 +56,7 @@ namespace Storepos.Controllers
 
         [HttpPost]
         [ActionName("Edit")]
-        public ActionResult Edit_Post(string idbarang)
+        public ActionResult Edit_Post(int idbarang)
         {
             var barangmodel = new Barang();
             TryUpdateModel(barangmodel);
@@ -70,7 +70,7 @@ namespace Storepos.Controllers
         }
 
         [HttpGet]
-        public ActionResult Details (string idbarang)
+        public ActionResult Details (int idbarang)
         {
             var barangmodel = new Barang();
             TryUpdateModel(barangmodel);
@@ -83,7 +83,7 @@ namespace Storepos.Controllers
 
         [HttpGet]
         [ActionName("Delete")]
-        public ActionResult Delete_Get(string idbarang)
+        public ActionResult Delete_Get(int idbarang)
         {
             var barangmodel = new Barang();
             TryUpdateModel(barangmodel);
@@ -96,7 +96,7 @@ namespace Storepos.Controllers
 
         [HttpPost]
         [ActionName("Delete")]
-        public ActionResult Delete_Post(string idbarang)
+        public ActionResult Delete_Post(int idbarang)
         {
             var barangmodel = new Barang();
             TryUpdateModel(barangmodel);

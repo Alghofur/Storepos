@@ -1,0 +1,21 @@
+﻿.navbar {
+    background-color: #300243;
+}
+
+h2 {
+    color: whitesmoke;
+    text-align: center;
+}
+
+p {
+    border: none;
+    width: 100px;
+    text-align: center;
+}
+
+p:hover {
+    color: #300243;
+    text-decoration: none;
+    font-size: 130%;
+    transition: .5s;
+}

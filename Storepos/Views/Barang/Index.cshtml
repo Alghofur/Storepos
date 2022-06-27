@@ -5,36 +5,19 @@
     //Layout = "~/Views/Shared/Point_of_sale.cshtml";
 }
 
-<style>
-    .navbar{
-        background-color: #300243;
-    }
-    h2{
-        color: whitesmoke;
-        text-align: center;
-    }       
-    p{
-        border: none;
-        width: 100px;        
-        text-align: center;
-    }
-    p :hover{
-        color: #300243;
-        text-decoration: none;
-        font-size: 130%;
-        transition: .5s;
-    }
-</style>
+<head>
+    <link rel="stylesheet" href="~/Content/Barang.css" />
+</head>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
     <h2>STOK BARANG EKASA MART</h2>
 </div>
-<br/>
 <br />
+<br />
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<br/>
 <table class="table">
     <tr style="background: #f5e0fe">
         <th>
@@ -58,35 +41,37 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDBarang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nama_Barang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kode_Barang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Jumlah_Stok)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Harga_Satuan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tanggal)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  idbarang=item.IDBarang}) |
-            @Html.ActionLink("Details", "Details", new {  idbarang=item.IDBarang  }) |
-            @Html.ActionLink("Delete", "Delete", new { idbarang = item.IDBarang })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDBarang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nama_Barang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kode_Barang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jumlah_Stok)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Harga_Satuan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tanggal)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { idbarang = item.IDBarang }) |
+                @Html.ActionLink("Details", "Details", new { idbarang = item.IDBarang }) |
+                @Html.ActionLink("Delete", "Delete", new { idbarang = item.IDBarang })
+            </td>
+        </tr>
+    }
 
 </table>
+
 <div>
     <a href="@Url.Action("GeneratePDF", "Barang")">
         <input type="submit" value="Print PDF" style="width : 150px; height :27px " />
