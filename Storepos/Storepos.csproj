@@ -177,6 +177,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaporanController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PengaturanController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Entitites\AspNetRoles.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -220,9 +221,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -280,8 +278,8 @@
     <Content Include="Admin_LTE\dist\img\credit\visa.png" />
     <Content Include="Admin_LTE\dist\img\default-150x150.png" />
     <Content Include="Admin_LTE\dist\img\icons.png" />
-    <Content Include="Admin_LTE\dist\img\Logo Ekasa.jpg" />
     <Content Include="Admin_LTE\dist\img\Logo Ekasa.png" />
+    <Content Include="Admin_LTE\dist\img\LogoEkasa-removebg-preview.png" />
     <Content Include="Admin_LTE\dist\img\photo1.png" />
     <Content Include="Admin_LTE\dist\img\photo2.png" />
     <Content Include="Admin_LTE\dist\img\photo3.jpg" />
@@ -2659,8 +2657,7 @@
     <Content Include="Entitites\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
-    <Content Include="obj\Release\Storepos.csproj.CoreCompileInputs.cache" />
-    <Content Include="App_Browsers\qt.browser" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2715,12 +2712,10 @@
     <Content Include="Views\Barang\Edit.cshtml" />
     <Content Include="Views\Barang\Details.cshtml" />
     <Content Include="Views\Barang\Delete.cshtml" />
-    <Content Include="Views\Laporan\Index.cshtml" />
-    <Content Include="Views\Laporan\LaporanCreate.cshtml" />
-    <Content Include="Views\Laporan\laporan_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Pengaturan\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
