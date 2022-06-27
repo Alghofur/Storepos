@@ -10,5 +10,7 @@ namespace Storepos
         {
             ConfigureAuth(app);
         }
+
+        
     }
 }

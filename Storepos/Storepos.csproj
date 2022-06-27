@@ -2711,10 +2711,10 @@
     <Content Include="Views\Barang\Details.cshtml" />
     <Content Include="Views\Barang\Delete.cshtml" />
     <Content Include="Views\Barang\GeneratePDF.cshtml" />
+    <Content Include="Views\Pengaturan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Pengaturan\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
