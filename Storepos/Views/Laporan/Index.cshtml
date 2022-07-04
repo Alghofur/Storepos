@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Laporan List";
+}
+
+<h2>Laporan</h2>
+<p>
+    @Html.ActionLink("Create New", "LaporanCreate")
+</p>
+<table id="TB_Laporan" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>ID_Barang</th>
+            <th>Waktu</th>
+            <th>Kode_Barang</th>
+            <th>Nama_Barang</th>
+            <th>Jumlah</th>
+            <th>Pendapatan</th>
+        </tr>
+    </thead>
+    <tbody id="TabelLaporan"></tbody>
+</table>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+@section scripts{
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+
+    <script>
+        var Popup, dataTable;
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                url: '@Url.Action("GetData", "Laporan")',
+                success: function (data) {
+                    console.log(data);
+                    for (var x = 0; x < data.data.length; x++) {
+                        $("#TabelLaporan").append(
+                            "<tr><td>" + data.data[x].IDBarang + "</td><td>" + data.data[x].Waktu + "</td><td>" + data.data[x].Kode_Barang + "</td><td>" + data.data[x].Nama_Barang + "</td><td>" + data.data[x].Jumlah + "</td><td>" + data.data[x].Pendapatan + "</td></tr >"
+                        );
+                        console.log(x);
+                    };
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+
+            @*dataTable = $("#TB_Laporan").DataTable({
+                 "ajax" : {
+                    "url":'@Url.Action("GetData","Laporan")',
+                    "type": "Get",
+                    "datatype": "Json",
+                },
+                "colummns": [
+                    { "data": "Waktu" },
+                    { "data": "ID_Barang" },
+                    { "data": "Kode_Barang" },
+                    { "data": "Nama_Barang" },
+                    { "data": "Jumlah" },
+                    { "data": "Pendapatan" },
+                ],
+                "language": {
+
+                    "emptyTable": "No data found, Please click on <b>Add New</b> Button"
+
+                }
+            });*@
+
+        });
+
+        function PopupForm(url) {
+            var formDiv = $('<div/>');
+            $.get(url)
+                .done(function (response) {
+                    formDiv.html(response);
+
+                    Popup = formDiv.dialog({
+                        autoOpen: true,
+                        resizable: false,
+                        title: 'Detail Laporan',
+                        height: 500,
+                        widht: 700,
+                        close: function myfunction() {
+                            Popup.dialog('destroy').remove();
+                        }
+                    });
+                });
+        }
+
+        function SubmitForm(form) {
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: form.action,
+                    data: $(form).serialize(),
+                    success: function (data) {
+                        if (data.success) {
+                            Popup.dialog('close');
+                            dataTable.ajax.reload();
+                        }
+
+                    }
+                });
+            }
+            return false;
+        }
+    </script>
+
+}
