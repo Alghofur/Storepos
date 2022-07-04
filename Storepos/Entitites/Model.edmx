@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="posModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="posModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -70,24 +70,24 @@
           <Key>
             <PropertyRef Name="IDBarang" />
           </Key>
-          <Property Name="IDBarang" Type="int" Nullable="false" />
+          <Property Name="IDBarang" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="Nama_Barang" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Kode_Barang" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Jumlah_Stok" Type="int" />
-          <Property Name="Harga_Satuan" Type="varchar" MaxLength="300" />
+          <Property Name="Harga_Satuan" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="Tanggal" Type="date" />
         </EntityType>
-        <EntityType Name="Laporann">
+        <EntityType Name="TB_Laporan">
           <Key>
-            <PropertyRef Name="IDBarang" />
+            <PropertyRef Name="LaporanID" />
           </Key>
-          <Property Name="IDBarang" Type="int" Nullable="false" />
-          <Property Name="Waktu" Type="datetime" />
-          <Property Name="Kode_Barang" Type="varchar" MaxLength="250" />
-          <Property Name="Nama_Barang" Type="varchar" MaxLength="250" />
-          <Property Name="jumlah" Type="int" />
-          <Property Name="Pendapatan" Type="int" />
-          <Property Name="idLaporan" Type="int" />
+          <Property Name="LaporanID" Type="int" Nullable="false" />
+          <Property Name="Waktu" Type="varchar" MaxLength="50" />
+          <Property Name="IDBarang" Type="varchar" MaxLength="50" />
+          <Property Name="Kode_Barang" Type="varchar" MaxLength="50" />
+          <Property Name="Nama_Barang" Type="varchar" MaxLength="50" />
+          <Property Name="Jumlah" Type="varchar" MaxLength="50" />
+          <Property Name="Pendapatan" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -146,14 +146,14 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="posModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Barang" EntityType="Self.Barang" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Laporann" EntityType="Self.Laporann" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Barang" EntityType="Self.Barang" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="TB_Laporan" EntityType="Self.TB_Laporan" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -174,7 +174,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="posModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="posModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityType Name="C__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -197,7 +197,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -234,6 +234,29 @@
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
+        <EntityType Name="Barang">
+          <Key>
+            <PropertyRef Name="IDBarang" />
+          </Key>
+          <Property Name="IDBarang" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nama_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kode_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Jumlah_Stok" Type="Int32" />
+          <Property Name="Harga_Satuan" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tanggal" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TB_Laporan">
+          <Key>
+            <PropertyRef Name="LaporanID" />
+          </Key>
+          <Property Name="LaporanID" Type="Int32" Nullable="false" />
+          <Property Name="Waktu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kode_Barang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nama_Barang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Jumlah" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pendapatan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDBarang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -266,12 +289,14 @@
           <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="posEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="posEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Barang" EntityType="Self.Barang" />
+          <EntitySet Name="TB_Laporan" EntityType="Self.TB_Laporan" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -284,32 +309,7 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <EntitySet Name="Laporann" EntityType="posModel.Laporann" />
-          <EntitySet Name="Barang" EntityType="posModel.Barang" />
         </EntityContainer>
-        <EntityType Name="Laporann">
-          <Key>
-            <PropertyRef Name="IDBarang" />
-          </Key>
-          <Property Name="IDBarang" Type="Int32" Nullable="false" />
-          <Property Name="Waktu" Type="DateTime" Precision="3" />
-          <Property Name="Kode_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Nama_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="jumlah" Type="Int32" />
-          <Property Name="Pendapatan" Type="Int32" />
-          <Property Name="idLaporan" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Barang">
-          <Key>
-            <PropertyRef Name="IDBarang" />
-          </Key>
-          <Property Name="IDBarang" Type="Int32" Nullable="false" />
-          <Property Name="Nama_Barang" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Kode_Barang" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Jumlah_Stok" Type="Int32" />
-          <Property Name="Harga_Satuan" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="Tanggal" Type="DateTime" Precision="0" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -371,6 +371,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Barang">
+            <EntityTypeMapping TypeName="posModel.Barang">
+              <MappingFragment StoreEntitySet="Barang">
+                <ScalarProperty Name="IDBarang" ColumnName="IDBarang" />
+                <ScalarProperty Name="Nama_Barang" ColumnName="Nama_Barang" />
+                <ScalarProperty Name="Kode_Barang" ColumnName="Kode_Barang" />
+                <ScalarProperty Name="Jumlah_Stok" ColumnName="Jumlah_Stok" />
+                <ScalarProperty Name="Harga_Satuan" ColumnName="Harga_Satuan" />
+                <ScalarProperty Name="Tanggal" ColumnName="Tanggal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Laporan">
+            <EntityTypeMapping TypeName="posModel.TB_Laporan">
+              <MappingFragment StoreEntitySet="TB_Laporan">
+                <ScalarProperty Name="IDBarang" ColumnName="IDBarang" />
+                <ScalarProperty Name="LaporanID" ColumnName="LaporanID" />
+                <ScalarProperty Name="Waktu" ColumnName="Waktu" />
+                <ScalarProperty Name="Kode_Barang" ColumnName="Kode_Barang" />
+                <ScalarProperty Name="Nama_Barang" ColumnName="Nama_Barang" />
+                <ScalarProperty Name="Jumlah" ColumnName="Jumlah" />
+                <ScalarProperty Name="Pendapatan" ColumnName="Pendapatan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="posModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
@@ -379,52 +404,27 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Laporann">
-            <EntityTypeMapping TypeName="posModel.Laporann">
-              <MappingFragment StoreEntitySet="Laporann">
-                <ScalarProperty Name="idLaporan" ColumnName="idLaporan" />
-                <ScalarProperty Name="Pendapatan" ColumnName="Pendapatan" />
-                <ScalarProperty Name="jumlah" ColumnName="jumlah" />
-                <ScalarProperty Name="Nama_Barang" ColumnName="Nama_Barang" />
-                <ScalarProperty Name="Kode_Barang" ColumnName="Kode_Barang" />
-                <ScalarProperty Name="Waktu" ColumnName="Waktu" />
-                <ScalarProperty Name="IDBarang" ColumnName="IDBarang" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Barang">
-            <EntityTypeMapping TypeName="posModel.Barang">
-              <MappingFragment StoreEntitySet="Barang">
-                <ScalarProperty Name="Tanggal" ColumnName="Tanggal" />
-                <ScalarProperty Name="Harga_Satuan" ColumnName="Harga_Satuan" />
-                <ScalarProperty Name="Jumlah_Stok" ColumnName="Jumlah_Stok" />
-                <ScalarProperty Name="Kode_Barang" ColumnName="Kode_Barang" />
-                <ScalarProperty Name="Nama_Barang" ColumnName="Nama_Barang" />
-                <ScalarProperty Name="IDBarang" ColumnName="IDBarang" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
-    <Connection>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
-      </DesignerInfoPropertySet>
-    </Connection>
-    <Options>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-      </DesignerInfoPropertySet>
-    </Options>
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="false" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
-  </Designer>
+    <edmx:Diagrams />
+  </edmx:Designer>
 </edmx:Edmx>
