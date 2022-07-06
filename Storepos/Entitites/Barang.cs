@@ -19,6 +19,6 @@ namespace Storepos.Entitites
         public string Kode_Barang { get; set; }
         public Nullable<int> Jumlah_Stok { get; set; }
         public string Harga_Satuan { get; set; }
-        public System.DateTime Tanggal { get; set; }
+        public Nullable<System.DateTime> Tanggal { get; set; }
     }
 }
