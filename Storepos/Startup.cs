@@ -20,7 +20,7 @@ namespace Storepos
             ApplicationDbContext context = new ApplicationDbContext();
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
             // In Startup iam creating first Admin Role and creating a default Admin User     
             if (!roleManager.RoleExists("SuperAdmin"))
@@ -39,11 +39,11 @@ namespace Storepos
 
                 string userPWD = "Luffy!23";
 
-                var chkUser = userManager.Create(user, userPWD);
+                var chkUser = UserManager.Create(user, userPWD);
 
                 if (chkUser.Succeeded)
                 {
-                    var result1 = userManager.AddToRole(user.Id, "SuperAdmin");
+                    var result1 = UserManager.AddToRole(user.Id, "SuperAdmin");
 
                 }
             }
