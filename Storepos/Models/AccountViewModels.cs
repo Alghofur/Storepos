@@ -50,6 +50,7 @@ namespace Storepos.Models
     {
         [Required]
         [Display(Name = "UserName")]
+
         public string UserName { get; set; }
 
         [Required]
