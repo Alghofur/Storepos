@@ -15,8 +15,8 @@
 <br />
 <br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="tbl-barang">
+    @Html.ActionLink("Tambah Barang", "Create")
 </p>
 <table class="table">
     <tr style="background: #f5e0fe">
@@ -62,10 +62,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Tanggal)
             </td>
-            <td>
+            <td class="tbl-barang">
                 @Html.ActionLink("Edit", "Edit", new { idbarang = item.IDBarang }) |
-                @Html.ActionLink("Details", "Details", new { idbarang = item.IDBarang }) |
-                @Html.ActionLink("Delete", "Delete", new { idbarang = item.IDBarang })
+                @Html.ActionLink("Detail", "Details", new { idbarang = item.IDBarang }) |
+                @Html.ActionLink("Hapus", "Delete", new { idbarang = item.IDBarang })
             </td>
         </tr>
     }

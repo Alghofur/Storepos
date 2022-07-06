@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace LaporanControllers
 {
-    [Authorize(Roles ="Manager")]
+    //[Authorize(Roles ="Manager")]
     public class LaporanController : Controller
     {
         // GET: Laporan

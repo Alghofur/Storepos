@@ -4,7 +4,15 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<head>
+    <link rel="stylesheet" href="~/Content/Barang.css" />
+</head>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <h2>TAMBAH STOK BARANG EKASA MART</h2>
+</div>
+<br />
+<br />
 
 
 @using (Html.BeginForm())
@@ -12,7 +20,6 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Barang</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -65,14 +72,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Tambah" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="tbl-back">
+    @Html.ActionLink("Kembali", "Index")
 </div>
 
 @section Scripts
