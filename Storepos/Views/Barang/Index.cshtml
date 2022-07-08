@@ -62,19 +62,25 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Tanggal)
             </td>
-            <td class="tbl-barang">
-                @Html.ActionLink("Edit", "Edit", new { idbarang = item.IDBarang }) |
-                @Html.ActionLink("Detail", "Details", new { idbarang = item.IDBarang }) |
-                @Html.ActionLink("Hapus", "Delete", new { idbarang = item.IDBarang })
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { idbarang = item.IDBarang }, new { @class="btn btn-primary" }) |
+                @Html.ActionLink("Details", "Details", new { idbarang = item.IDBarang}, new { @class="btn btn-primary" }) |
+                @Html.ActionLink("Delete", "Delete", new { idbarang = item.IDBarang }, new { @class="btn btn-danger" })
             </td>
         </tr>
     }
 
 </table>
 
-<div>
+@*<div>
     <a href="@Url.Action("GeneratePDF", "Barang")">
         <input type="submit" value="Print PDF" style="width : 150px; height :27px " />
     </a>
+</div>*@
+
+<div class="d-print-none">
+    <div class="float-end">
+        <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1">Print<i class="fa fa-print"></i></a>
+    </div>
 </div>
 
