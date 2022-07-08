@@ -7,15 +7,16 @@ h2 {
     text-align: center;
 }
 
-p {
-    border: none;
-    width: 100px;
-    text-align: center;
-}
-
-p:hover {
+.tbl-barang :hover {
     color: #300243;
     text-decoration: none;
-    font-size: 130%;
+    font-size: 120%;
+    transition: .5s;
+}
+
+.tbl-back :hover {
+    color: #300243;
+    text-decoration: none;
+    font-size: 120%;
     transition: .5s;
 }

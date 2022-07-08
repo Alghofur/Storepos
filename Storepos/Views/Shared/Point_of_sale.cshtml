@@ -41,9 +41,9 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-            @Html.Partial("_LoginPartial")
-                
-                
+                <li class="nav-item">                     
+                    @Html.Partial("_LoginPartial")                    
+                </li>            
                 <!-- Navbar Search -->
                 <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
@@ -106,7 +106,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="~/Admin_LTE/pages/examples/profile.html" class="nav-link">
+                            <a href="@Url.Action("Index", "Laporan")" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     LAPORAN
@@ -128,7 +128,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="~/Admin_LTE/pages/examples/contact-us.html" class="nav-link">
+                            <a href="@Url.Action("Index", "Pengaturan")" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
                                     PENGATURAN

@@ -75,7 +75,7 @@
           <Property Name="Kode_Barang" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Jumlah_Stok" Type="int" />
           <Property Name="Harga_Satuan" Type="varchar" MaxLength="300" />
-          <Property Name="Tanggal" Type="date" />
+          <Property Name="Tanggal" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Laporann">
           <Key>
@@ -296,7 +296,7 @@
           <Property Name="Kode_Barang" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Jumlah_Stok" Type="Int32" />
           <Property Name="Harga_Satuan" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="Tanggal" Type="DateTime" Precision="0" />
+          <Property Name="Tanggal" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Laporann">
           <Key>
