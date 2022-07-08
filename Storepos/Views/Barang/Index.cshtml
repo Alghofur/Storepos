@@ -63,7 +63,7 @@
                 @Html.DisplayFor(modelItem => item.Tanggal)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new  { idbarang = item.IDBarang }) |
+                <a>@Html.ActionLink("Edit", "Edit", new { idbarang = item.IDBarang }) |</a>
                 @Html.ActionLink("Details", "Details", new { idbarang = item.IDBarang }) |
                 @Html.ActionLink("Delete", "Delete", new { idbarang = item.IDBarang })
             </td>
