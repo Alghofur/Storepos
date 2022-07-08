@@ -8,6 +8,15 @@
         font-family: 'Poppins', sans-serif;
     }
 
+    .navbar {
+        background-color: #300243;
+    }
+
+    h2 {
+        color: whitesmoke;
+        text-align: center;
+    }
+
     .container-utama {
         display: flex;
         justify-content: center;
@@ -48,8 +57,17 @@
         padding-top: 8px;
         padding-bottom: 8px;
     }
+    p :hover {
+        color: #300243;
+        text-decoration: none;
+        font-size: 120%;
+        transition: .5s;
+    }
 </style>
 
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <h2>EKASA MART</h2>
+</div>
 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
@@ -79,7 +97,7 @@
                     <input type="submit" value="Log in" />
                 </div>
                 <p>
-                    @Html.ActionLink("Register as a new user", "Register")
+                    @Html.ActionLink("Daftar Akun Baru", "Register")
                 </p>
             </div>
         </form>

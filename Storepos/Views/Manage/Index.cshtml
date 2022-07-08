@@ -3,11 +3,26 @@
     ViewBag.Title = "Manage";
 }
 
+<style>
+    .navbar {
+        background-color: #300243;
+    }
+
+    h2 {
+        color: whitesmoke;
+        text-align: center;
+    }    
+</style>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <h2>EKASA MART</h2>
+</div>
+
 <h2>@ViewBag.Title.</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Change your account settings</h4>
+    <h4>Ubah Pengaturan Akun</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>Password:</dt>
@@ -15,7 +30,7 @@
             [
             @if (Model.HasPassword)
             {
-                @Html.ActionLink("Change your password", "ChangePassword")
+            @Html.ActionLink("Ganti Password", "ChangePassword")
             }
             else
             {
