@@ -63,9 +63,9 @@
                 @Html.DisplayFor(modelItem => item.Tanggal)
             </td>
             <td>
-                <a>@Html.ActionLink("Edit", "Edit", new { idbarang = item.IDBarang }) |</a>
-                @Html.ActionLink("Details", "Details", new { idbarang = item.IDBarang }) |
-                @Html.ActionLink("Delete", "Delete", new { idbarang = item.IDBarang })
+                @Html.ActionLink("Edit", "Edit", new { idbarang = item.IDBarang }, new { @class="btn btn-primary" }) |
+                @Html.ActionLink("Details", "Details", new { idbarang = item.IDBarang}, new { @class="btn btn-primary" }) |
+                @Html.ActionLink("Delete", "Delete", new { idbarang = item.IDBarang }, new { @class="btn btn-danger" })
             </td>
         </tr>
     }
