@@ -3,8 +3,17 @@
     ViewBag.Title = "Laporan List";
 }
 
-<h2>Laporan</h2>
-<p>
+<head>
+    <link rel="stylesheet" href="~/Content/Laporan.css" />
+</head>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <h2>EKASA MART</h2>
+</div>
+<br />
+<br />
+
+<p class="tbl-laporan">
     @Html.ActionLink("Create New", "LaporanCreate")
 </p>
 <table id="TB_Laporan" class="table table-striped table-bordered" style="width:100%">

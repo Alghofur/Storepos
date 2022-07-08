@@ -10,6 +10,14 @@
         font-family: 'Poppins', sans-serif;
     }
 
+    .navbar {
+        background-color: #300243;
+    }
+
+    h2 {
+        color: whitesmoke;
+        text-align: center;
+    }
 
     .container-utama {
         display: flex;
@@ -52,7 +60,9 @@
     }
 </style>
 
-
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <h2>EKASA MART</h2>
+</div>
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
@@ -91,13 +101,12 @@
                         @*@Html.DropDownList("Name")*@
                         @*<p style="color: #949494;">*@
                         @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")
-                        @*</p>*@
-                        
+                        @*</p>*@                        
                     </div>
                 </div>
 
                 <div class="button">
-                    <input type="submit" value="Daftar" />
+                    <input type="submit" class="btn btn-primary btn-block" value="Daftar" />
                 </div>
             </div>
         </form>
