@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace LaporanControllers
 {
-    [Authorize(Roles = "SuperAdmin")]
+    //[Authorize(Roles = "SuperAdmin")]
     public class LaporanController : Controller
     {
         // GET: Laporan

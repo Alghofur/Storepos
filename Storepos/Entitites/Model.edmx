@@ -70,7 +70,7 @@
           <Key>
             <PropertyRef Name="IDBarang" />
           </Key>
-          <Property Name="IDBarang" Type="int" Nullable="false" />
+          <Property Name="IDBarang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nama_Barang" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Kode_Barang" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Jumlah_Stok" Type="int" />
@@ -79,15 +79,15 @@
         </EntityType>
         <EntityType Name="Laporann">
           <Key>
-            <PropertyRef Name="IDBarang" />
+            <PropertyRef Name="IDLaporan" />
           </Key>
-          <Property Name="IDBarang" Type="int" Nullable="false" />
+          <Property Name="IDLaporan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Waktu" Type="datetime" />
           <Property Name="Kode_Barang" Type="varchar" MaxLength="250" />
           <Property Name="Nama_Barang" Type="varchar" MaxLength="250" />
           <Property Name="jumlah" Type="int" />
           <Property Name="Pendapatan" Type="int" />
-          <Property Name="idLaporan" Type="int" />
+          <Property Name="IDBarang" Type="int" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -291,7 +291,7 @@
           <Key>
             <PropertyRef Name="IDBarang" />
           </Key>
-          <Property Name="IDBarang" Type="Int32" Nullable="false" />
+          <Property Name="IDBarang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nama_Barang" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Kode_Barang" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Jumlah_Stok" Type="Int32" />
@@ -300,15 +300,15 @@
         </EntityType>
         <EntityType Name="Laporann">
           <Key>
-            <PropertyRef Name="IDBarang" />
+            <PropertyRef Name="IDLaporan" />
           </Key>
-          <Property Name="IDBarang" Type="Int32" Nullable="false" />
+          <Property Name="IDLaporan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Waktu" Type="DateTime" Precision="3" />
           <Property Name="Kode_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Nama_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="jumlah" Type="Int32" />
           <Property Name="Pendapatan" Type="Int32" />
-          <Property Name="idLaporan" Type="Int32" />
+          <Property Name="IDBarang" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -394,13 +394,13 @@
           <EntitySetMapping Name="Laporann">
             <EntityTypeMapping TypeName="posModel.Laporann">
               <MappingFragment StoreEntitySet="Laporann">
-                <ScalarProperty Name="idLaporan" ColumnName="idLaporan" />
+                <ScalarProperty Name="IDBarang" ColumnName="IDBarang" />
                 <ScalarProperty Name="Pendapatan" ColumnName="Pendapatan" />
                 <ScalarProperty Name="jumlah" ColumnName="jumlah" />
                 <ScalarProperty Name="Nama_Barang" ColumnName="Nama_Barang" />
                 <ScalarProperty Name="Kode_Barang" ColumnName="Kode_Barang" />
                 <ScalarProperty Name="Waktu" ColumnName="Waktu" />
-                <ScalarProperty Name="IDBarang" ColumnName="IDBarang" />
+                <ScalarProperty Name="IDLaporan" ColumnName="IDLaporan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -14,12 +14,12 @@ namespace Storepos.Entitites
     
     public partial class Laporann
     {
-        public int IDBarang { get; set; }
+        public int IDLaporan { get; set; }
         public Nullable<System.DateTime> Waktu { get; set; }
         public string Kode_Barang { get; set; }
         public string Nama_Barang { get; set; }
         public Nullable<int> jumlah { get; set; }
         public Nullable<int> Pendapatan { get; set; }
-        public Nullable<int> idLaporan { get; set; }
+        public Nullable<int> IDBarang { get; set; }
     }
 }
