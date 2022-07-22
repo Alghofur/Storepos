@@ -12,18 +12,22 @@ namespace Storepos.Entitites
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetRoles
+    public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AspNetRoles()
+        public Order()
         {
-            this.AspNetUsers = new HashSet<AspNetUsers>();
+            this.OrderDetails = new HashSet<OrderDetail>();
         }
     
-        public string Id { get; set; }
-        public string Name { get; set; }
+        public int OrderId { get; set; }
+        public int PaymentTypeId { get; set; }
+        public int CustomerId { get; set; }
+        public string OrderNumber { get; set; }
+        public System.DateTime OrderDate { get; set; }
+        public decimal FinalTotal { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

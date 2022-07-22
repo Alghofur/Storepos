@@ -1,20 +1,13 @@
-﻿@model Storepos.Entitites.Barang
+﻿@model Storepos.Entitites.BARANG___
 
 @{
     ViewBag.Title = "Details";
 }
 
-<head>
-    <link rel="stylesheet" href="~/Content/Barang.css" />
-</head>
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <h2>DETAIL STOK BARANG EKASA MART</h2>
-</div>
-<br />
-<br />
+<h2>Details</h2>
 
 <div>
+    <h4>BARANG___</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -26,35 +19,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Nama_Barang)
+            @Html.DisplayNameFor(model => model.NamaBarang)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Nama_Barang)
+            @Html.DisplayFor(model => model.NamaBarang)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Kode_Barang)
+            @Html.DisplayNameFor(model => model.KodeBarang)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Kode_Barang)
+            @Html.DisplayFor(model => model.KodeBarang)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Jumlah_Stok)
+            @Html.DisplayNameFor(model => model.JumlahStock)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Jumlah_Stok)
+            @Html.DisplayFor(model => model.JumlahStock)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Harga_Satuan)
+            @Html.DisplayNameFor(model => model.HargaBarang)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Harga_Satuan)
+            @Html.DisplayFor(model => model.HargaBarang)
         </dd>
 
         <dt>
@@ -67,7 +60,7 @@
 
     </dl>
 </div>
-<p class="tbl-back">
-    @Html.ActionLink("Edit", "Edit", new { idbarang = Model.IDBarang }, new { @class="btn btn-primary" }) 
-    @Html.ActionLink("Kembali", "Index")
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

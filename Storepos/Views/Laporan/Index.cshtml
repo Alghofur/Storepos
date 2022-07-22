@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Laporan List";
+    //Layout = "~/Views/Shared/Point_of_sale.cshtml";
 }
 
 <head>
@@ -49,7 +50,7 @@
                     console.log(data);
                     for (var x = 0; x < data.data.length; x++) {
                         $("#TabelLaporan").append(
-                            "<tr><td>" + data.data[x].IDLaporan + "</td><td>" + data.data[x].IDBarang + "</td><td>" + data.data[x].Waktu + "</td><td>" + data.data[x].Kode_Barang + "</td><td>" + data.data[x].Nama_Barang + "</td><td>" + data.data[x].Jumlah + "</td> <td>" + data.data[x].Pendapatan + "</td></tr >"
+                            "<tr><td>" + data.data[x].TransactionId + "</td><td>" + data.data[x].PaymentTypeId + "</td><td>" + data.data[x].CuntomerId + "</td><td>" + data.data[x].OrderNumber + "</td><td>" + data.data[x].OrderDate + "</td><td>" + data.data[x].FinalTotal + "</td></tr >"
                         );
                         console.log(x);
                     };

@@ -1,8 +1,7 @@
-﻿@model IEnumerable<Storepos.Entitites.Barang>
+﻿@model IEnumerable<Storepos.Entitites.BARANG___>
 
 @{
-    ViewBag.Title = "STOK BARANG";
-    //Layout = "~/Views/Shared/Point_of_sale.cshtml";
+    ViewBag.Title = "Index";
 }
 
 <head>
@@ -12,28 +11,26 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <h2>STOK BARANG EKASA MART</h2>
 </div>
-<br />
-<br />
 
-<p class="tbl-barang">
-    @Html.ActionLink("Tambah Barang", "Create")
+<p>
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr style="background: #f5e0fe">
+    <tr>
         <th>
             @Html.DisplayNameFor(model => model.IDBarang)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nama_Barang)
+            @Html.DisplayNameFor(model => model.NamaBarang)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Kode_Barang)
+            @Html.DisplayNameFor(model => model.KodeBarang)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Jumlah_Stok)
+            @Html.DisplayNameFor(model => model.JumlahStock)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Harga_Satuan)
+            @Html.DisplayNameFor(model => model.HargaBarang)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Tanggal)
@@ -48,35 +45,34 @@
                 @Html.DisplayFor(modelItem => item.IDBarang)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nama_Barang)
+                @Html.DisplayFor(modelItem => item.NamaBarang)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Kode_Barang)
+                @Html.DisplayFor(modelItem => item.KodeBarang)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Jumlah_Stok)
+                @Html.DisplayFor(modelItem => item.JumlahStock)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Harga_Satuan)
+                @Html.DisplayFor(modelItem => item.HargaBarang)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Tanggal)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { idbarang = item.IDBarang }, new { @class="btn btn-primary" }) |
-                @Html.ActionLink("Details", "Details", new { idbarang = item.IDBarang}, new { @class="btn btn-primary" }) |
-                @Html.ActionLink("Delete", "Delete", new { idbarang = item.IDBarang }, new { @class="btn btn-danger" })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
             </td>
         </tr>
     }
 
 </table>
-
 @*<div>
-    <a href="@Url.Action("GeneratePDF", "Barang")">
-        <input type="submit" value="Print PDF" style="width : 150px; height :27px " />
-    </a>
-</div>*@
+        <a href="@Url.Action("GeneratePDF", "Barang")">
+            <input type="submit" value="Print PDF" style="width : 150px; height :27px " />
+        </a>
+    </div>*@
 
 <div class="d-print-none">
     <div class="float-end">

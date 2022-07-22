@@ -21,26 +21,26 @@ namespace LaporanControllers
         {
             using (posEntities db = new posEntities())
             {
-                List<Laporann> empList = db.Laporann.ToList<Laporann>();
+                List<Transaction> empList = db.Transactions.ToList<Transaction>();
                 return Json(new { data = empList }, JsonRequestBehavior.AllowGet);
             }
         }
 
-        [HttpGet]
-        public ActionResult LaporanCreate(int id = 0)
-        {
-            return View(new Laporann());
-        }
-        [HttpPost]
-        public ActionResult LaporanCreate(Laporann emp)
-        {
-            using (posEntities db = new posEntities())
-            {
-                db.Laporann.Add(emp);
-                db.SaveChanges();
-                return Json(new { success = true, messeage = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
-            }
+        //[HttpGet]
+        //public ActionResult LaporanCreate(int id = 0)
+        //{
+        //    return View(new Laporann());
+        //}
+        //[HttpPost]
+        //public ActionResult LaporanCreate(Laporann emp)
+        //{
+        //    using (posEntities db = new posEntities())
+        //    {
+        //        db.Laporanns.Add(emp);
+        //        db.SaveChanges();
+        //        return Json(new { success = true, messeage = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
+        //    }
 
-        }
+        //}
     }
 }

@@ -1,20 +1,14 @@
-﻿@model Storepos.Entitites.Barang
+﻿@model Storepos.Entitites.BARANG___
 
 @{
     ViewBag.Title = "Delete";
 }
 
-<head>
-    <link rel="stylesheet" href="~/Content/Barang.css" />
-</head>
+<h2>Delete</h2>
 
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <h2>HAPUS STOK BARANG EKASA MART</h2>
-</div>
-<br />
-<br />
-
+<h3>Are you sure you want to delete this?</h3>
 <div>
+    <h4>BARANG___</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -26,35 +20,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Nama_Barang)
+            @Html.DisplayNameFor(model => model.NamaBarang)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Nama_Barang)
+            @Html.DisplayFor(model => model.NamaBarang)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Kode_Barang)
+            @Html.DisplayNameFor(model => model.KodeBarang)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Kode_Barang)
+            @Html.DisplayFor(model => model.KodeBarang)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Jumlah_Stok)
+            @Html.DisplayNameFor(model => model.JumlahStock)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Jumlah_Stok)
+            @Html.DisplayFor(model => model.JumlahStock)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Harga_Satuan)
+            @Html.DisplayNameFor(model => model.HargaBarang)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Harga_Satuan)
+            @Html.DisplayFor(model => model.HargaBarang)
         </dd>
 
         <dt>
@@ -67,15 +61,12 @@
 
     </dl>
 
-    @using (Html.BeginForm())
-    {
+    @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" />
-        </div>
-        <div class="tbl-back" style="padding-left: 10px; padding-top: 30px;">
-            @Html.ActionLink("Kembali", "Index")
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
         </div>
     }
 </div>

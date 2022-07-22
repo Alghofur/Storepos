@@ -1,117 +1,86 @@
 ﻿using Storepos.Entitites;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Storepos.Controllers
 {
     public class BarangController : Controller
     {
+        posEntities Dc = new posEntities();
+
         // GET: Barang
         public ActionResult Index()
         {
-            List<Barang> r;
-            using (var s = new posEntities())
-            {
-                r = s.Barang.ToList();
-            }
-            return View(r);
+            return View(Dc.BARANG___.ToList());
         }
 
-        [HttpGet]
-        [ActionName("Create")]
-        public ActionResult Create_Get()
+        public ActionResult Create(int id = 0)
         {
-            return View();
+            BARANG___ emp = new BARANG___();
+            var barang = Dc.BARANG___.OrderByDescending(c => c.ID).FirstOrDefault();
+            if (id != 0)
+            {
+                emp = Dc.BARANG___.Where(x => x.ID == id).FirstOrDefault<BARANG___>();
+            }
+            else if (barang == null)
+            {
+                emp.IDBarang = "EKASA ID001";
+            }
+            else
+            {
+                emp.IDBarang = "EKASA ID" + (Convert.ToInt32(barang.IDBarang.Substring(9, barang.IDBarang.Length - 9)) + 1).ToString("D3");
+            }
+            return View(emp);
         }
 
         [HttpPost]
-        [ActionName("Create")]
-        public ActionResult Create_Post()
+        public ActionResult Create(BARANG___ R)
         {
-            var barangmodel = new Barang();
-            TryUpdateModel(barangmodel);
-
-            using (var s = new posEntities())
+            using (Dc)
             {
-                s.Barang.Add(barangmodel);
-                s.SaveChanges();
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        [ActionName("Edit")]
-        public ActionResult Edit_Get(int idbarang)
-        {
-            var barangmodel = new Barang();
-            TryUpdateModel(barangmodel);
-            using (var s = new posEntities())
-            {
-                barangmodel = s.Barang.Where(x => x.IDBarang == idbarang).FirstOrDefault();
-            }
-            return View(barangmodel);
-        }
-
-        [HttpPost]
-        [ActionName("Edit")]
-        public ActionResult Edit_Post(int idbarang)
-        {
-            var barangmodel = new Barang();
-            TryUpdateModel(barangmodel);
-            using (var s = new posEntities())
-            {
-                var m = s.Barang.Where(x => x.IDBarang == idbarang).FirstOrDefault();
-                TryUpdateModel(m);
-                s.SaveChanges();
+                Dc.BARANG___.Add(R);
+                Dc.SaveChanges();
             }
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public ActionResult Details (int idbarang)
+        public ActionResult Delete(int id)
         {
-            var barangmodel = new Barang();
-            TryUpdateModel(barangmodel);
-            using (var s = new posEntities())
-            {
-                barangmodel = s.Barang.FirstOrDefault(x => x.IDBarang == idbarang);
-            }
-            return View(barangmodel);
+            return View(Dc.BARANG___.Find(id));
         }
 
-        [HttpGet]
-        [ActionName("Delete")]
-        public ActionResult Delete_Get(int idbarang)
-        {
-            var barangmodel = new Barang();
-            TryUpdateModel(barangmodel);
-            using (var s = new posEntities())
-            {
-                barangmodel = s.Barang.FirstOrDefault(x => x.IDBarang == idbarang);
-            }
-            return View(barangmodel);
-        }
+        [HttpPost, ActionName("Delete")]
 
-        [HttpPost]
-        [ActionName("Delete")]
-        public ActionResult Delete_Post(int idbarang)
+        public ActionResult delete(int id)
         {
-            var barangmodel = new Barang();
-            TryUpdateModel(barangmodel);
-            using (var s = new posEntities())
-            {
-                var m = s.Barang.Remove(s.Barang.FirstOrDefault(x => x.IDBarang == idbarang));
-                TryUpdateModel(m);
-                s.SaveChanges();
-            }
+            BARANG___ Reg = Dc.BARANG___.Find(id);
+            Dc.BARANG___.Remove(Reg);
+            Dc.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        //public ActionResult GeneratePDF()
-        //{
-        //    return new Rotativa.ActionAsPdf("Index");
-        //}
+        public ActionResult Edit(int id)
+        {
+            return View(Dc.BARANG___.Find(id));
+        }
+
+        [HttpPost]
+        public ActionResult Edit(BARANG___ R)
+        {
+            Dc.Entry(R).State = EntityState.Modified;
+            Dc.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+         public ActionResult Details(int id)
+        {
+            return View(Dc.BARANG___.Find(id));
+        }
+
+
     }
 }

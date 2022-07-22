@@ -1,100 +1,82 @@
-﻿@model Storepos.Entitites.Barang
+﻿@model Storepos.Entitites.BARANG___
 
 @{
     ViewBag.Title = "Edit";
 }
 
-<head>
-    <link rel="stylesheet" href="~/Content/Barang.css" />
-</head>
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <h2>EDIT STOK BARANG EKASA MART</h2>
-</div>
-<br />
-<br />
+<h2>Edit</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">              
+    
+    <div class="form-horizontal">
+        <h4>BARANG___</h4>
+        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
         <div class="form-group">
             @Html.LabelFor(model => model.IDBarang, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IDBarang, new { htmlAttributes = new { @class = "form-control",disabled = "disabled" } })
+                @Html.EditorFor(model => model.IDBarang, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.IDBarang, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Nama_Barang, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NamaBarang, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nama_Barang, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nama_Barang, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.NamaBarang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NamaBarang, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Kode_Barang, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.KodeBarang, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Kode_Barang, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Kode_Barang, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Jumlah_Stok, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Jumlah_Stok, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Jumlah_Stok, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.KodeBarang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KodeBarang, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Harga_Satuan, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.JumlahStock, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Harga_Satuan, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Harga_Satuan, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.JumlahStock, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.JumlahStock, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HargaBarang, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HargaBarang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HargaBarang, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Tanggal, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Tanggal, new { htmlAttributes = new { @class = "datepicker" } })
+                @Html.EditorFor(model => model.Tanggal, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Tanggal, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Simpan" class="btn btn-success" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div class="tbl-back">
-    @Html.ActionLink("Kembali", "Index")
+<div>
+    @Html.ActionLink("Back to List", "Index")
 </div>
-@section Scripts
-{
-    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    @*<script src="~/Scripts/jquery-ui-1.13.1.js"></script>*@
-    <script src="~/Scripts/jquery-ui-1.13.1.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".datepicker").datepicker({
-                dateFormat: "dd-mm-yy",
-                changeMont: true,
-                changeYear: true
-            });
-        });
-    </script>
-    
 }

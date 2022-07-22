@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -168,9 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FilterConfig2.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BarangController.cs" />
@@ -179,23 +184,30 @@
     <Compile Include="Controllers\LaporanController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PengaturanController.cs" />
+    <Compile Include="Controllers\TransaksiController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Entitites\AspNetRoles.cs">
+    <Compile Include="Entitites\AspNetRole.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entitites\AspNetUserClaims.cs">
+    <Compile Include="Entitites\AspNetUser.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entitites\AspNetUserLogins.cs">
+    <Compile Include="Entitites\AspNetUserClaim.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entitites\AspNetUsers.cs">
+    <Compile Include="Entitites\AspNetUserLogin.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entitites\Barang.cs">
+    <Compile Include="Entitites\BARANG___.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitites\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entitites\C__MigrationHistory.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitites\Item.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entitites\Laporann.cs">
@@ -216,6 +228,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entitites\Order.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitites\OrderDetail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitites\PaymentType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitites\Transaction.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,6 +248,15 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\Transaksi\Repositories\CustomerRepository.cs" />
+    <Compile Include="Views\Transaksi\Repositories\ItemRepository.cs" />
+    <Compile Include="Views\Transaksi\Repositories\OrderRepository.cs" />
+    <Compile Include="Views\Transaksi\Repositories\PaymentTypeRepository.cs" />
+    <Compile Include="Views\Transaksi\ViewModel\CustomerViewModel.cs" />
+    <Compile Include="Views\Transaksi\ViewModel\ItemViewModel.cs" />
+    <Compile Include="Views\Transaksi\ViewModel\OrderDetailViewModel.cs" />
+    <Compile Include="Views\Transaksi\ViewModel\OrderViewModel.cs" />
+    <Compile Include="Views\Transaksi\ViewModel\PaymentTypeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin_LTE\build\config\postcss.config.js" />
@@ -2698,6 +2731,7 @@
     <Content Include="Admin_LTE\plugins\summernote\summernote.js.map" />
     <Content Include="Admin_LTE\plugins\summernote\summernote.min.js.map" />
     <Content Include="Admin_LTE\plugins\toastr\toastr.js.map" />
+    <Content Include="libman.json" />
     <EntityDeploy Include="Entitites\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -2705,7 +2739,6 @@
     <Content Include="Entitites\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
-    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2757,16 +2790,16 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Point_of_sale.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Barang\Index.cshtml" />
-    <Content Include="Views\Barang\Create.cshtml" />
-    <Content Include="Views\Barang\Edit.cshtml" />
-    <Content Include="Views\Barang\Details.cshtml" />
-    <Content Include="Views\Barang\Delete.cshtml" />
-    <Content Include="Views\Barang\GeneratePDF.cshtml" />
     <Content Include="Views\Pengaturan\Index.cshtml" />
     <Content Include="Views\Laporan\Index.cshtml" />
     <Content Include="Views\Laporan\LaporanCreate.cshtml" />
     <Content Include="Views\Laporan\laporan_Layout.cshtml" />
+    <Content Include="Views\Barang\Create.cshtml" />
+    <Content Include="Views\Barang\Delete.cshtml" />
+    <Content Include="Views\Barang\Index.cshtml" />
+    <Content Include="Views\Transaksi\Index.cshtml" />
+    <Content Include="Views\Barang\Edit.cshtml" />
+    <Content Include="Views\Barang\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
