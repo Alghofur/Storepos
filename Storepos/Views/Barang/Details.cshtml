@@ -4,10 +4,17 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<head>
+    <link rel="stylesheet" href="~/Content/Barang.css" />
+</head>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <h2>Detail Barang</h2>
+</div>
+<br />
+<br />
 
 <div>
-    <h4>BARANG___</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -60,7 +67,7 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+<p class="tbl-back">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-success waves-effect waves-light me-1" }) |
+    @Html.ActionLink("Kembali", "Index", new { @class = "tbl-back" })
 </p>

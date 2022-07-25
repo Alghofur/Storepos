@@ -11,9 +11,11 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <h2>STOK BARANG EKASA MART</h2>
 </div>
+<br />
+<br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="tbl-barang">
+    @Html.ActionLink("Tambah Barang", "Create")
 </p>
 <table class="table">
     <tr>
@@ -60,23 +62,10 @@
                 @Html.DisplayFor(modelItem => item.Tanggal)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
             </td>
         </tr>
-    }
-
+     }
 </table>
-@*<div>
-        <a href="@Url.Action("GeneratePDF", "Barang")">
-            <input type="submit" value="Print PDF" style="width : 150px; height :27px " />
-        </a>
-    </div>*@
-
-<div class="d-print-none">
-    <div class="float-end">
-        <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1">Print<i class="fa fa-print"></i></a>
-    </div>
-</div>
-
