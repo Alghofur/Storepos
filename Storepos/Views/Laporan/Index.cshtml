@@ -50,7 +50,7 @@
                     console.log(data);
                     for (var x = 0; x < data.data.length; x++) {
                         $("#TabelLaporan").append(
-                            "<tr><td>" + data.data[x].TransactionId + "</td><td>" + data.data[x].PaymentTypeId + "</td><td>" + data.data[x].CuntomerId + "</td><td>" + data.data[x].OrderNumber + "</td><td>" + data.data[x].OrderDate + "</td><td>" + data.data[x].FinalTotal + "</td></tr >"
+                            "<tr><td>" + data.data[x].TransactionId + "</td><td>" + data.data[x].ItemId + "</td><td>" + data.data[x].Quantity + "</td><td>" + data.data[x].Transaction1 + "</td><td>" + data.data[x].TypeId + "</td><td>" + data.data[x].FinalTotal + "</td></tr >"
                         );
                         console.log(x);
                     };

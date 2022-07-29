@@ -21,7 +21,7 @@ namespace LaporanControllers
         {
             using (posEntities db = new posEntities())
             {
-                List<Transaction> empList = db.Transactions.ToList<Transaction>();
+                List<OrderDetail> empList = db.OrderDetails.ToList<OrderDetail>();
                 return Json(new { data = empList }, JsonRequestBehavior.AllowGet);
             }
         }
