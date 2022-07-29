@@ -13,5 +13,7 @@ namespace Storepos.Controllers
         {
             return View();
         }
+
+        public string 
     }
 }
