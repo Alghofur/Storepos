@@ -44,7 +44,34 @@
             $("#txtPaymentTotal").val(parseFloat(TotalHarga).toFixed(2));
             $("#txtPaymentAmount").val(parseFloat(TotalHarga).toFixed(2));
         });
-    });
+
+        var divToPrint = document.getElementById("#txtNotaPembayaran").innerHTML;
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+        $('#btnPayment').click(function () {
+            printData();
+        });
+
+        //$('#btnPayment').click(function () {
+        //    $('#Divbtn').show();
+        //});
+
+        //$('#btnPayment').click(function () {
+        //    var divContents = $('#txtNotaPembayaran').html();
+        //    var printwindow = window.open(/*'', '', 'heigth=600, width=600, margin-top=50, margin-left=100'*/);
+        //    printwindow.document.write('<html><head><title>from DTH </title>');
+        //    printwindow.document.write('<head><body >');
+        //    printwindow.document.write(divContents);
+        //    printwindow.document.write('</body></html>');
+        //    printwindow.document.write.close();
+        //    printwindow.print();
+        //});
+        
+
+    
+    }
 
     function FinalPayment() {
         var objOrderViewModel = {};
@@ -255,11 +282,11 @@
                 <input data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#divPayment" type="button" style="margin-top: 5px" value="Checkout" name="save" id="btnCheckOut" class="btn btn-primary" />
             </div>
         </div>
-        <div class="d-print-none">
+        @*<div class="d-print-none" >
             <div class="float-end">
-                <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1">Print<i class="fa fa-print"></i></a>
+                <a href="javascript:window.print()" id="Printf" class="btn btn-success waves-effect waves-light me-1">Print<i class="fa fa-print"></i></a>
             </div>
-        </div>
+        </div>*@
     </fieldset>
 </div>
 
@@ -297,8 +324,8 @@
 
             
 
-            <div class="modal-footer">
-                <button class="btn btn-success" disabled="" id="btnPayment" value="Payment">Payment</button>
+            <div class="modal-footer" id="Divbtn">
+                <button type="submit" onclick="window.print()" class="btn btn-success" disabled="" id="btnPayment" value="Payment">Payment</button>
                 <button class="btn btn-danger" id="btnClose" data-dismiss="modal" value="Close">Close</button>
             </div>
         </div>
