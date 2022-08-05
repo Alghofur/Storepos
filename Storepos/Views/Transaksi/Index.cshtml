@@ -38,6 +38,12 @@
         $("#btnPayment").click(function () {
             FinalPayment();
         });
+
+        $("#btnCheckOut").click(function () {
+            var TotalHarga = $("#txtFinalTotal").val();
+            $("#txtPaymentTotal").val(parseFloat(TotalHarga).toFixed(2));
+            $("#txtPaymentAmount").val(parseFloat(TotalHarga).toFixed(2));
+        });
     });
 
     function FinalPayment() {
@@ -67,7 +73,7 @@
             data: JSON.stringify(objOrderViewModel),
             url: '/Transaksi/Fajar',
             success: function (data) {
-                alert(data);
+                Location.Href =$("#txtNotaPembayaran").print();
             },
             error: function () {
                 alert("There is some problem to adding the data");
@@ -127,7 +133,7 @@
         $("#tblRestaurantItemList").find("tr:gt(0)").each(function () {
             var Total = parseFloat($(this).find("td:eq(5)").text());
             FinalTotal += Total;
-            alert(FinalTotal);
+            (FinalTotal);
         });
         $("#txtFinalTotal").val(parseFloat(FinalTotal).toFixed(2));
     }
@@ -148,7 +154,7 @@
         var Total = (UnitPrice * Quantity) - Discount;
 
         $("#txtTotal").val(parseFloat(Total).toFixed(2));
-        $("#txtPaymentTotal").val(parseFloat(Total).toFixed(2));
+        
         $("#txtBalance").val(parseFloat(Total).toFixed(2));
     }
 
@@ -190,7 +196,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     Jumlah :
-                    <input style="text-align:right" type="text" id="txtQuantity" value="0.00" name="Quantity" class="form-control" />
+                    <input style="text-align:right" type="text" id="txtQuantity" value="0" name="Quantity" class="form-control" />
                 </div>
             </div>
         </div>
@@ -215,40 +221,47 @@
         </div>
     </div>    
 </fieldset>
-<fieldset style="overflow: auto;">
-    <legend>List Barang</legend>
-    <table style="width:100%" id="tblRestaurantItemList">
-        <thead>
-            <tr>
-                <th hidden>
-                    Item Id
-                </th>
-                <th>
-                    Nama Barang
-                </th>
-                <th>
-                    Harga Barang
-                </th>
-                <th>
-                    Jumlah Barang
-                </th>
-                <th>
-                    Diskon
-                </th>
-                <th>
-                    Total Harga
-                </th>
-            </tr>
-        </thead>
-    </table>
-    <div class="col-md-4" style="float:right; position:sticky; bottom:0; right:0;">
-        <div class="form-group">
-            <h3>TOTAL :</h3>
-            <input style="text-align:right; width: 500px; height: 70px; font-size: 200%;" type="text" value="0.00" readonly="readonly" id="txtFinalTotal" class="form-control" />
-            <input data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#divPayment" type="button" style="margin-top: 5px" value="Checkout" name="save" id="btnCheckOut" class="btn btn-primary" />
+<div id="#txtNotaPembayaran">
+    <fieldset style="overflow: auto;">
+        <legend>List Barang</legend>
+        <table style="width:100%" id="tblRestaurantItemList">
+            <thead>
+                <tr>
+                    <th hidden>
+                        Item Id
+                    </th>
+                    <th>
+                        Nama Barang
+                    </th>
+                    <th>
+                        Harga Barang
+                    </th>
+                    <th>
+                        Jumlah Barang
+                    </th>
+                    <th>
+                        Diskon
+                    </th>
+                    <th>
+                        Total Harga
+                    </th>
+                </tr>
+            </thead>
+        </table>
+        <div class="col-md-4" style="float:right; position:sticky; bottom:0; right:0;">
+            <div class="form-group">
+                <h3>TOTAL :</h3>
+                <input style="text-align:right; width: 500px; height: 70px; font-size: 200%;" type="text" value="0.00" readonly="readonly" id="txtFinalTotal" class="form-control" />
+                <input data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#divPayment" type="button" style="margin-top: 5px" value="Checkout" name="save" id="btnCheckOut" class="btn btn-primary" />
+            </div>
         </div>
-    </div>
-</fieldset>
+        <div class="d-print-none">
+            <div class="float-end">
+                <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1">Print<i class="fa fa-print"></i></a>
+            </div>
+        </div>
+    </fieldset>
+</div>
 
 <div id="divPayment" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -282,6 +295,8 @@
                 </div>
             </div>
 
+            
+
             <div class="modal-footer">
                 <button class="btn btn-success" disabled="" id="btnPayment" value="Payment">Payment</button>
                 <button class="btn btn-danger" id="btnClose" data-dismiss="modal" value="Close">Close</button>
@@ -289,3 +304,4 @@
         </div>
     </div>
 </div>
+
