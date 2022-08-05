@@ -2800,10 +2800,10 @@
     <Content Include="Views\Transaksi\Index.cshtml" />
     <Content Include="Views\Barang\Edit.cshtml" />
     <Content Include="Views\Barang\Details.cshtml" />
+    <Content Include="Views\Invoive\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Invoive\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
