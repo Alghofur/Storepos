@@ -45,14 +45,7 @@
             $("#txtPaymentAmount").val(parseFloat(TotalHarga).toFixed(2));
         });
 
-        var divToPrint = document.getElementById("#txtNotaPembayaran").innerHTML;
-        newWin = window.open("");
-        newWin.document.write(divToPrint.outerHTML);
-        newWin.print();
-        newWin.close();
-        $('#btnPayment').click(function () {
-            printData();
-        });
+        
 
         //$('#btnPayment').click(function () {
         //    $('#Divbtn').show();
@@ -68,10 +61,10 @@
         //    printwindow.document.write.close();
         //    printwindow.print();
         //});
-        
 
-    
-    }
+
+
+    });
 
     function FinalPayment() {
         var objOrderViewModel = {};
@@ -106,7 +99,43 @@
                 alert("There is some problem to adding the data");
             }
         });
+
+
+        //$('#btnPayment').click(function () {
+        //    printData();
+        //});
+
+        //function printData(txtNotaPembayaran) {
+        //    var printContent = document.getElementById('#txtNotaPembayaran');
+        //    var WinPrint = window.open('', '', 'width=900,height=650');
+        //    WinPrint.document.write(printContent.innerHTML);
+        //    WinPrint.document.close();
+        //    WinPrint.focus();
+        //    WinPrint.print();
+        //    WinPrint.close();
+        //}
+
+        var divToPrint = document.getElementById('#txtNotaPembayaran');
+        newWin = window.open("");
+        newWin.document.write(divToPrint.innerHTML);
+        newWin.print();
+        newWin.close();
+
+        //var myApp = new function () {
+        //    this.printDiv = function () {
+        //        // Store DIV contents in the variable.
+        //        var div = document.getElementById("#txtNotaPembayaran");
+
+        //        // Create a window object.
+        //        var win = window.open(''); // Open the window. Its a popup window.
+        //        win.document.write(div.innerHTML);     // Write contents in the new window.
+        //        win.document.close();
+        //        win.print();       // Finally, print the contents.
+        //    }
+        //}
     }
+
+
 
     function CalculateBalance() {
         var FinalAmount = $("#txtPaymentTotal").val();
@@ -248,7 +277,7 @@
         </div>
     </div>
 </fieldset>
-<div id="#txtNotaPembayaran">
+<div id="#txtNotaPembayaran" >
     <fieldset style="overflow: auto;">
         <legend>List Barang</legend>
         <table style="width:100%" id="tblRestaurantItemList">
@@ -324,8 +353,8 @@
 
             
 
-            <div class="modal-footer" id="Divbtn">
-                <button type="submit" onclick="window.print()" class="btn btn-success" disabled="" id="btnPayment" value="Payment">Payment</button>
+            <div class="modal-footer">
+                <button type="submit" onclick="printData()" class="btn btn-success" disabled="" id="btnPayment" value="Payment">Payment</button>
                 <button class="btn btn-danger" id="btnClose" data-dismiss="modal" value="Close">Close</button>
             </div>
         </div>
