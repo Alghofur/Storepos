@@ -8,20 +8,21 @@ using System.Web.Mvc;
 
 namespace LaporanControllers
 {
-    //[Authorize(Roles = "SuperAdmin")]
     public class LaporanController : Controller
     {
-        // GET: Laporan
-        public ActionResult Index()
+        posEntities Dc = new posEntities();
+
+        // GET: Barang
+        public ActionResult Laporan()
         {
-            return View();
+            return View(Dc.OrderDetails.ToList());
         }
 
         public ActionResult GetData()
         {
             using (posEntities db = new posEntities())
             {
-                List<OrderDetail> empList = db.OrderDetails.ToList<OrderDetail>();
+                List<OrderDetail> empList = db.OrderDetails.ToList();
                 return Json(new { data = empList }, JsonRequestBehavior.AllowGet);
             }
         }
@@ -41,6 +42,6 @@ namespace LaporanControllers
         //        return Json(new { success = true, messeage = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
         //    }
 
-        //}
+        //}h
     }
 }

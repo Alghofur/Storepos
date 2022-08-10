@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Storepos.Entitites.OrderDetail>
 @{
     ViewBag.Title = "Laporan List";
     //Layout = "~/Views/Shared/Point_of_sale.cshtml";
@@ -15,8 +15,8 @@
 <br />
 
 @*<p class="tbl-laporan">
-    @Html.ActionLink("Create New", "LaporanCreate")
-</p>*@
+        @Html.ActionLink("Create New", "LaporanCreate")
+    </p>*@
 <table id="TB_Laporan" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
@@ -37,7 +37,7 @@
 
 @section scripts{
     @*<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>*@
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+
 
     <script>
         var Popup, dataTable;
@@ -50,7 +50,7 @@
                     console.log(data);
                     for (var x = 0; x < data.data.length; x++) {
                         $("#TabelLaporan").append(
-                            "<tr><td>" + data.data[x].TransactionId + "</td><td>" + data.data[x].ItemId + "</td><td>" + data.data[x].Quantity + "</td><td>" + data.data[x].Transaction1 + "</td><td>" + data.data[x].TypeId + "</td><td>" + data.data[x].FinalTotal + "</td></tr >"
+                            "<tr><td>" + data.data[x].OrderDetailId + "</td><td>" + data.data[x].OrderId + "</td><td>" + data.data[x].ItemID + "</td><td>" + data.data[x].UnitPrice + "</td><td>" + data.data[x].Quantity + "</td><td>" + data.data[x].Discount + "</td><td>" + data.data[x].Total + "</td></tr >"
                         );
                         console.log(x);
                     };
@@ -83,43 +83,43 @@
 
         });
 
-        function PopupForm(url) {
-            var formDiv = $('<div/>');
-            $.get(url)
-                .done(function (response) {
-                    formDiv.html(response);
+        //function PopupForm(url) {
+        //    var formDiv = $('<div/>');
+        //    $.get(url)
+        //        .done(function (response) {
+        //            formDiv.html(response);
 
-                    Popup = formDiv.dialog({
-                        autoOpen: true,
-                        resizable: false,
-                        title: 'Detail Laporan',
-                        height: 500,
-                        widht: 700,
-                        close: function myfunction() {
-                            Popup.dialog('destroy').remove();
-                        }
-                    });
-                });
-        }
+        //            Popup = formDiv.dialog({
+        //                autoOpen: true,
+        //                resizable: false,
+        //                title: 'Detail Laporan',
+        //                height: 500,
+        //                widht: 700,
+        //                close: function myfunction() {
+        //                    Popup.dialog('destroy').remove();
+        //                }
+        //            });
+        //        });
+        //}
 
-        function SubmitForm(form) {
-            $.validator.unobtrusive.parse(form);
-            if ($(form).valid()) {
-                $.ajax({
-                    type: "POST",
-                    url: form.action,
-                    data: $(form).serialize(),
-                    success: function (data) {
-                        if (data.success) {
-                            Popup.dialog('close');
-                            dataTable.ajax.reload();
-                        }
+        //function SubmitForm(form) {
+        //    $.validator.unobtrusive.parse(form);
+        //    if ($(form).valid()) {
+        //        $.ajax({
+        //            type: "POST",
+        //            url: form.action,
+        //            data: $(form).serialize(),
+        //            success: function (data) {
+        //                if (data.success) {
+        //                    Popup.dialog('close');
+        //                    dataTable.ajax.reload();
+        //                }
 
-                    }
-                });
-            }
-            return false;
-        }
+        //            }
+        //        });
+        //    }
+        //    return false;
+        //}
     </script>
 
 }

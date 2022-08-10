@@ -198,6 +198,9 @@
     <Compile Include="Entitites\AspNetUserLogin.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entitites\Barang.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entitites\BARANG___.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -2793,13 +2796,13 @@
     <Content Include="Views\Pengaturan\Index.cshtml" />
     <Content Include="Views\Laporan\Index.cshtml" />
     <Content Include="Views\Laporan\LaporanCreate.cshtml" />
-    <Content Include="Views\Laporan\laporan_Layout.cshtml" />
     <Content Include="Views\Barang\Create.cshtml" />
     <Content Include="Views\Barang\Delete.cshtml" />
     <Content Include="Views\Barang\Index.cshtml" />
     <Content Include="Views\Transaksi\Index.cshtml" />
     <Content Include="Views\Barang\Edit.cshtml" />
     <Content Include="Views\Barang\Details.cshtml" />
+    <Content Include="Views\Laporan\Laporan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

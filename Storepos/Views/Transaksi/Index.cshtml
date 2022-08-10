@@ -56,6 +56,7 @@
 
         $("#tblRestaurantItemList").find("tr:gt(0)").each(function () {
             var OrderDetailViewModel = {};
+            OrderDetailViewModel.ItemName = $(this).find("td:eq(1)").text();
             OrderDetailViewModel.Total = parseFloat($(this).find("td:eq(5)").text());
             OrderDetailViewModel.ItemId = parseFloat($(this).find("td:eq(0)").text());
             OrderDetailViewModel.UnitPrice = parseFloat($(this).find("td:eq(2)").text());
@@ -73,7 +74,7 @@
             data: JSON.stringify(objOrderViewModel),
             url: '/Transaksi/Fajar',
             success: function (data) {
-                Location.Href =$("#txtNotaPembayaran").print();
+                Location.Href = window.print();
             },
             error: function () {
                 alert("There is some problem to adding the data");
@@ -154,7 +155,7 @@
         var Total = (UnitPrice * Quantity) - Discount;
 
         $("#txtTotal").val(parseFloat(Total).toFixed(2));
-        
+
         $("#txtBalance").val(parseFloat(Total).toFixed(2));
     }
 
@@ -175,9 +176,18 @@
             }
         });
     }
+
+    function printDiv(elementId) {
+        var a = document.getElementById('print-area-2').value;
+        var b = document.getElementById(elementId).innerHTML;
+        window.frames["print_frame"].document.title = document.title;
+        window.frames["print_frame"].document.body.innerHTML = '<style>' + a + '</style>' + b;
+        window.frames["print_frame"].window.focus();
+        window.frames["print_frame"].window.print();
+    }
 </script>
 
-<fieldset>    
+<fieldset>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -256,12 +266,14 @@
             </div>
         </div>
         <div class="d-print-none">
-            <div class="float-end">
-                <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1">Print<i class="fa fa-print"></i></a>
+            <div>
+                <a class="no-print btn btn-sm btn-warning" href="javascript:printDiv('#txtNotaPembayaran');"><span class="glyphicon glyphicon-print"></span> Print</a>
             </div>
         </div>
     </fieldset>
 </div>
+
+<iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"></iframe>
 
 <div id="divPayment" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -295,7 +307,7 @@
                 </div>
             </div>
 
-            
+
 
             <div class="modal-footer">
                 <button class="btn btn-success" disabled="" id="btnPayment" value="Payment">Payment</button>

@@ -21,5 +21,7 @@ namespace Storepos.Entitites
         public Nullable<int> jumlah { get; set; }
         public Nullable<int> Pendapatan { get; set; }
         public Nullable<int> IDBarang { get; set; }
+    
+        public virtual Barang Barang { get; set; }
     }
 }
