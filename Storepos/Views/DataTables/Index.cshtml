@@ -15,11 +15,11 @@
 <table id="Laporan" class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>id</th>
+            <th>ID</th>
             <th>NamaBarang</th>
             <th>Harga</th>
+            <th>Jumlah</th>
             <th>Discount</th>
-            <th>jumlah</th>
             <th>Total</th>
         </tr>
     </thead>
@@ -33,7 +33,7 @@
         $(document).ready(function () {
             $('#Laporan').DataTable({
                 "ajax": {
-                    "url": "/Laporan/GetData",
+                    "url": "/DataTables/GetData",
                     "type": "Get",
                     "datatype": "json",
                 },

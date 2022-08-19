@@ -12,15 +12,12 @@ namespace Storepos.Entitites
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderDetail
+    public partial class sysdiagram
     {
-        public int OrderDetailID { get; set; }
-        public int OrderId { get; set; }
-        public int ItemId { get; set; }
-        public decimal UnitPrice { get; set; }
-        public Nullable<decimal> Quantity { get; set; }
-        public decimal Discount { get; set; }
-        public decimal Total { get; set; }
-        public string ItemName { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
