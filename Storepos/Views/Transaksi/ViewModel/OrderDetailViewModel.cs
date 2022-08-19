@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Storepos.Transaksi.ViewModel
+﻿namespace Storepos.Transaksi.ViewModel
 {
     public class OrderDetailViewModel
     {
@@ -13,5 +8,6 @@ namespace Storepos.Transaksi.ViewModel
         public decimal Quantity { get; set; }
         public decimal Discount { get; set; }
         public decimal Total { get; set; }
+        public string ItemName { get; set; }
     }
 }

@@ -66,6 +66,17 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="Barang">
+          <Key>
+            <PropertyRef Name="IDBarang" />
+          </Key>
+          <Property Name="IDBarang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nama_Barang" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Kode_Barang" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Jumlah_Stok" Type="int" />
+          <Property Name="Harga_Satuan" Type="varchar" MaxLength="300" />
+          <Property Name="Tanggal" Type="date" Nullable="false" />
+        </EntityType>
         <EntityType Name="BARANG!@#">
           <Key>
             <PropertyRef Name="ID" />
@@ -116,6 +127,7 @@
           <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Discount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -201,6 +213,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Laporann_Barang">
+          <End Role="Barang" Type="Self.Barang" Multiplicity="0..1" />
+          <End Role="Laporann" Type="Self.Laporann" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Barang">
+              <PropertyRef Name="IDBarang" />
+            </Principal>
+            <Dependent Role="Laporann">
+              <PropertyRef Name="IDBarang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_OrderDetails_Orders">
           <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
@@ -220,6 +244,7 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Barang" EntityType="Self.Barang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BARANG!@#" EntityType="Self.BARANG!@#" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
@@ -243,6 +268,10 @@
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laporann_Barang" Association="Self.FK_Laporann_Barang">
+            <End Role="Barang" EntitySet="Barang" />
+            <End Role="Laporann" EntitySet="Laporann" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderDetails_Orders" Association="Self.FK_OrderDetails_Orders">
             <End Role="Orders" EntitySet="Orders" />
@@ -313,6 +342,18 @@
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
+        <EntityType Name="Barang">
+          <Key>
+            <PropertyRef Name="IDBarang" />
+          </Key>
+          <Property Name="IDBarang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nama_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kode_Barang" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Jumlah_Stok" Type="Int32" />
+          <Property Name="Harga_Satuan" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Tanggal" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Laporanns" Relationship="Self.FK_Laporann_Barang" FromRole="Barang" ToRole="Laporann" />
+        </EntityType>
         <EntityType Name="BARANG___">
           <Key>
             <PropertyRef Name="ID" />
@@ -351,6 +392,7 @@
           <Property Name="jumlah" Type="Int32" />
           <Property Name="Pendapatan" Type="Int32" />
           <Property Name="IDBarang" Type="Int32" />
+          <NavigationProperty Name="Barang" Relationship="Self.FK_Laporann_Barang" FromRole="Laporann" ToRole="Barang" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
@@ -363,6 +405,7 @@
           <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Order">
@@ -422,6 +465,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Laporann_Barang">
+          <End Role="Barang" Type="Self.Barang" Multiplicity="0..1" />
+          <End Role="Laporann" Type="Self.Laporann" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Barang">
+              <PropertyRef Name="IDBarang" />
+            </Principal>
+            <Dependent Role="Laporann">
+              <PropertyRef Name="IDBarang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_OrderDetails_Orders">
           <End Role="Orders" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
@@ -444,6 +499,7 @@
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Barangs" EntityType="Self.Barang" />
           <EntitySet Name="BARANG___" EntityType="Self.BARANG___" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Items" EntityType="Self.Item" />
@@ -459,6 +515,10 @@
           <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laporann_Barang" Association="Self.FK_Laporann_Barang">
+            <End Role="Barang" EntitySet="Barangs" />
+            <End Role="Laporann" EntitySet="Laporanns" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderDetails_Orders" Association="Self.FK_OrderDetails_Orders">
             <End Role="Orders" EntitySet="Orders" />
@@ -530,6 +590,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Barangs">
+            <EntityTypeMapping TypeName="posModel.Barang">
+              <MappingFragment StoreEntitySet="Barang">
+                <ScalarProperty Name="IDBarang" ColumnName="IDBarang" />
+                <ScalarProperty Name="Nama_Barang" ColumnName="Nama_Barang" />
+                <ScalarProperty Name="Kode_Barang" ColumnName="Kode_Barang" />
+                <ScalarProperty Name="Jumlah_Stok" ColumnName="Jumlah_Stok" />
+                <ScalarProperty Name="Harga_Satuan" ColumnName="Harga_Satuan" />
+                <ScalarProperty Name="Tanggal" ColumnName="Tanggal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="BARANG___">
             <EntityTypeMapping TypeName="posModel.BARANG___">
               <MappingFragment StoreEntitySet="BARANG!@#">
@@ -583,6 +655,7 @@
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

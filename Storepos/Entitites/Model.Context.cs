@@ -30,6 +30,7 @@ namespace Storepos.Entitites
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<Barang> Barangs { get; set; }
         public virtual DbSet<BARANG___> BARANG___ { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Item> Items { get; set; }

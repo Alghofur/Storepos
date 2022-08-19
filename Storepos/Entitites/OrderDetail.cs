@@ -21,6 +21,7 @@ namespace Storepos.Entitites
         public Nullable<decimal> Quantity { get; set; }
         public decimal Discount { get; set; }
         public decimal Total { get; set; }
+        public string ItemName { get; set; }
     
         public virtual Order Order { get; set; }
     }
