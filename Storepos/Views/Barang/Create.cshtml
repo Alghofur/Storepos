@@ -65,7 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Tanggal, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Tanggal, new { htmlAttributes = new { @class = "datepicker" } })
+                @Html.EditorFor(model => model.Tanggal, new { htmlAttributes = new { @class = "datepicker", placeholder = "Tanggal" } })
                 @Html.ValidationMessageFor(model => model.Tanggal, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -86,8 +86,7 @@
 {
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/jqueryval")
-    @*<script src="~/Scripts/jquery-ui-1.13.1.js"></script>*@
-    <script src="~/Scripts/jquery-ui-1.13.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.13.2.min.js"></script>
     <script>
         $(document).ready(function () {
             $(".datepicker").datepicker({
