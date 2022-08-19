@@ -179,6 +179,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BarangController.cs" />
+    <Compile Include="Controllers\DataTablesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiveController.cs" />
     <Compile Include="Controllers\LaporanController.cs" />
@@ -196,6 +197,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entitites\AspNetUserLogin.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitites\Barang.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entitites\BARANG___.cs">
@@ -235,6 +239,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entitites\PaymentType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitites\sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entitites\Transaction.cs">
@@ -2422,8 +2429,6 @@
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
     <Content Include="Rotativa\wkhtmltoimage.exe" />
     <Content Include="Rotativa\wkhtmltopdf.exe" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Admin_LTE\build\config\.eslintrc.json" />
     <Content Include="Admin_LTE\build\npm\.eslintrc.json" />
     <Content Include="Admin_LTE\build\scss\adminlte.scss" />
@@ -2732,6 +2737,14 @@
     <Content Include="Admin_LTE\plugins\summernote\summernote.min.js.map" />
     <Content Include="Admin_LTE\plugins\toastr\toastr.js.map" />
     <Content Include="libman.json" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <EntityDeploy Include="Entitites\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -2740,13 +2753,15 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.13.1.js" />
-    <Content Include="Scripts\jquery-ui-1.13.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.13.2.js" />
+    <Content Include="Scripts\jquery-ui-1.13.2.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -2791,29 +2806,19 @@
     <Content Include="Views\Shared\Point_of_sale.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Pengaturan\Index.cshtml" />
-    <Content Include="Views\Laporan\Index.cshtml" />
-    <Content Include="Views\Laporan\LaporanCreate.cshtml" />
-    <Content Include="Views\Laporan\laporan_Layout.cshtml" />
     <Content Include="Views\Barang\Create.cshtml" />
     <Content Include="Views\Barang\Delete.cshtml" />
     <Content Include="Views\Barang\Index.cshtml" />
     <Content Include="Views\Transaksi\Index.cshtml" />
     <Content Include="Views\Barang\Edit.cshtml" />
     <Content Include="Views\Barang\Details.cshtml" />
-    <Content Include="Views\Invoive\Index.cshtml" />
+    <Content Include="Views\DataTables\Index.cshtml" />
+    <Content Include="Views\Laporan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />

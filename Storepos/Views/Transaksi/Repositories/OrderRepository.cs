@@ -32,6 +32,7 @@ namespace Storepos.Transaksi.Repositories
                 OrderDetail objOrderDetail = new OrderDetail();
                 objOrderDetail.OrderId = OrderId;
                 objOrderDetail.Discount = item.ItemId;
+                objOrderDetail.ItemName = item.ItemName;
                 objOrderDetail.Total = item.Total;
                 objOrderDetail.UnitPrice = item.UnitPrice;
                 objOrderDetail.Quantity = item.Quantity;

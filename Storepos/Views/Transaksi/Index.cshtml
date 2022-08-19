@@ -78,6 +78,7 @@
 
         $("#tblRestaurantItemList").find("tr:gt(0)").each(function () {
             var OrderDetailViewModel = {};
+            OrderDetailViewModel.ItemName = $(this).find("td:eq(1)").text();
             OrderDetailViewModel.Total = parseFloat($(this).find("td:eq(5)").text());
             OrderDetailViewModel.ItemId = parseFloat($(this).find("td:eq(0)").text());
             OrderDetailViewModel.UnitPrice = parseFloat($(this).find("td:eq(2)").text());
@@ -95,15 +96,7 @@
             data: JSON.stringify(objOrderViewModel),
             url: '/Transaksi/Fajar',
             success: function (data) {
-               // Location.Href =window.print();
-                // alert($("#txtFinalTotal").val());
-                $("#txtFinalTotal").text(TotalHarga);
-                var divToPrint = document.getElementById("#txtNotaPembayaran");
-                newWin = window.open("");
-                newWin.document.write(divToPrint.outerHTML);
-                newWin.print();
-                newWin.close();
-               
+                Location.Href =$("#txtNotaPembayaran").print();
             },
             error: function () {
                 alert("There is some problem to adding the data");
@@ -222,7 +215,7 @@
         var Total = (UnitPrice * Quantity) - Discount;
 
         $("#txtTotal").val(parseFloat(Total).toFixed(2));
-        
+
         $("#txtBalance").val(parseFloat(Total).toFixed(2));
     }
 
@@ -260,8 +253,8 @@
    
 </script>
 
-<fieldset>    
-    <div class="container" id="atas">
+<fieldset>
+    <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
