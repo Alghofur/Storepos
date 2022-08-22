@@ -2809,12 +2809,12 @@
     <Content Include="Views\Pengaturan\Index.cshtml" />
     <Content Include="Views\Barang\Create.cshtml" />
     <Content Include="Views\Barang\Delete.cshtml" />
-    <Content Include="Views\Barang\Index.cshtml" />
     <Content Include="Views\Transaksi\Index.cshtml" />
-    <Content Include="Views\Barang\Edit.cshtml" />
     <Content Include="Views\Barang\Details.cshtml" />
     <Content Include="Views\DataTables\Index.cshtml" />
     <Content Include="Views\Laporan\Index.cshtml" />
+    <Content Include="Views\Barang\Index.cshtml" />
+    <Content Include="Views\Barang\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
