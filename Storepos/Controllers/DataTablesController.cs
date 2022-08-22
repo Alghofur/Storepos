@@ -7,13 +7,14 @@ using System.Web.Mvc;
 
 namespace Storepos.Controllers
 {
-    public class LaporanController : Controller
+    public class DataTablesController : Controller
     {
-        // GET: Laporan
+        // GET: DataTables
         public ActionResult Index()
         {
             return View();
         }
+
         public ActionResult GetData()
         {
             using (posEntities db = new posEntities())
