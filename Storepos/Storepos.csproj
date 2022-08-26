@@ -241,9 +241,6 @@
     <Compile Include="Entitites\PaymentType.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entitites\sysdiagram.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entitites\Transaction.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

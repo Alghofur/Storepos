@@ -6,7 +6,8 @@
 <head>
     <link rel="stylesheet" href="~/Content/Barang.css" />
 </head>
-
+@*<input type="button" id="delete" value="Delete Selected Record(s)" />
+<br /><br />*@
 <table id="Laporan" class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -39,9 +40,42 @@
                     { "data": "Quantity" },
                     { "data": "Discount" },
                     { "data": "Total" },
-                ],
+                ]
             });
         });
     </script>
 
+    @*<script>
+        $(document).ready(function () {
+
+            $("#checkAll").click(function () {
+                $(".checkBox").prop('checked',
+                    $(this).prop('checked'));
+            });
+
+            $("#delete").click(function () {
+                var selectedIDs = new Array();
+                $('input:checkbox.checkBox').each(function () {
+                    if ($(this).prop('checked')) {
+                        selectedIDs.push($(this).val());
+                    }
+                });
+
+                var options = {};
+                options.url = "/home/delete";
+                options.type = "POST";
+                options.data = JSON.stringify(selectedIDs);
+                options.contentType = "application/json";
+                options.dataType = "json";
+                options.success = function (msg) {
+                    alert(msg);
+                };
+                options.error = function () {
+                    alert("Error while deleting the records!");
+                };
+                $.ajax(options);
+
+            });
+        });
+    </script>*@
 }

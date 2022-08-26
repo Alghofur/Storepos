@@ -99,9 +99,9 @@
                 <div class="col-md-10">
                     <div class="input-box" @*style="color: whitesmoke;"*@>
                         @*@Html.DropDownList("Name")*@
-                        @*<p style="color: #949494;">*@
-                        @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")
-                        @*</p>*@                        
+                        
+                        @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, new { @class = "form-control select-add-placeholder" })
+                                               
                     </div>
                 </div>
 
@@ -121,4 +121,7 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $(".select-add-placeholder").prepend("<option value='' disabled selected>Select an Role...</option>");
+    </script>
 }
