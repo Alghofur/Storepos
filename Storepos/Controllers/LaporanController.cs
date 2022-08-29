@@ -10,7 +10,7 @@ namespace Storepos.Controllers
     public class LaporanController : Controller
     {
         // GET: Laporan
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "SuperAdmin, Manager")]
         public ActionResult Index()
         {
             return View();
