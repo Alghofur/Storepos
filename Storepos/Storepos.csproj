@@ -2749,6 +2749,8 @@
     <Content Include="Entitites\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\internship.appsintune.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\internship.appsintune.com - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
